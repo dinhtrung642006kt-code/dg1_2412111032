@@ -1,0 +1,19 @@
+*   b02cc3f fix: resolve merge conflict in README.md
+|\  
+| * b269657 docs: update README header on develop
+| *   3f5b3b7 Merge pull request #2 from dinhtrung642006kt-code/feature/docker
+| |\  
+| | * 9e933ac chore: update gitignore for docker environment
+| | * b9fe148 fix: adjust docker-compose parameters
+| | * 6e3ef01 feat: add docker-compose configuration
+| | * b69e867 feat: add Dockerfile for web service
+| * |   2b611a1 Merge pull request #1 from dinhtrung642006kt-code/feature/web-app
+| |\ \  
+| | |/  
+| |/|   
+| | * 24d040e docs: add project documentation
+| | * afe0dbf feat: add web app entry point
+| |/  
+* / 0b7b31c docs: update README header on main
+|/  
+* b46124f chore: init project
