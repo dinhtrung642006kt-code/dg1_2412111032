@@ -1,74 +1,48 @@
 === KET QUA KIEM THU CUA DINH TRUNG - 2412111032 ===
+
+--- TEST 1: POST THIEU TRUONG (HTTP 400) ---
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   176  100   152  100    24   7655   1208 --:--:-- --:--:-- --:--:--  9263
-HTTP/1.1 404 Not Found
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    65  100    41  100    24   2477   1450 --:--:-- --:--:-- --:--:--  4062
+HTTP/1.1 400 Bad Request
 X-Powered-By: Express
-Content-Security-Policy: default-src 'none'
-X-Content-Type-Options: nosniff
-Content-Type: text/html; charset=utf-8
-Content-Length: 152
-Date: Wed, 07 Oct 2026 02:22:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 41
+ETag: W/"29-FbqIBG3D3bsAG/FCZHEI2lFW4/M"
+Date: Wed, 07 Oct 2026 02:25:33 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Error</title>
-</head>
-<body>
-<pre>Cannot POST /api/students</pre>
-</body>
-</html>
+{"error":"Thieu truong du lieu bat buoc"}
 
 
+--- TEST 2: POST DIEM NGOAI KHOANG 0-10 (HTTP 400) ---
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   204  100   152  100    52  67525  23100 --:--:-- --:--:-- --:--:--   99k
-HTTP/1.1 404 Not Found
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   102  100    50  100    52  19485  20265 --:--:-- --:--:-- --:--:-- 51000
+HTTP/1.1 400 Bad Request
 X-Powered-By: Express
-Content-Security-Policy: default-src 'none'
-X-Content-Type-Options: nosniff
-Content-Type: text/html; charset=utf-8
-Content-Length: 152
-Date: Wed, 07 Oct 2026 02:22:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 50
+ETag: W/"32-w46wQcJ27LFBwA5bnkrTiCWu0Ig"
+Date: Wed, 07 Oct 2026 02:25:33 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Error</title>
-</head>
-<body>
-<pre>Cannot POST /api/students</pre>
-</body>
-</html>
+{"error":"Diem phai nam trong khoang tu 0 den 10"}
 
 
+--- TEST 3: POST HOP LE (HTTP 201) ---
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   208  100   152  100    56   106k  40287 --:--:-- --:--:-- --:--:--  203k
-HTTP/1.1 404 Not Found
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   123  100    67  100    56  20659  17267 --:--:-- --:--:-- --:--:-- 41000
+HTTP/1.1 201 Created
 X-Powered-By: Express
-Content-Security-Policy: default-src 'none'
-X-Content-Type-Options: nosniff
-Content-Type: text/html; charset=utf-8
-Content-Length: 152
-Date: Wed, 07 Oct 2026 02:22:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 67
+ETag: W/"43-SjuX2/urQW+QTgz9OgbjgBJ1h3g"
+Date: Wed, 07 Oct 2026 02:25:33 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Error</title>
-</head>
-<body>
-<pre>Cannot POST /api/students</pre>
-</body>
-</html>
+{"id":"SV933018","name":"Dinh Trung Test","class":"DG1","diem":9.5}

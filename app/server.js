@@ -10,7 +10,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Hàm hỗ trợ đọc dữ liệu sinh viên
 const getStudentsData = () => {
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
@@ -20,80 +19,61 @@ const getStudentsData = () => {
     }
 };
 
-// Câu C1: GET /
+const saveStudentsData = (data) => {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf8');
+};
+
+// C1: GET /
 app.get('/', (req, res) => {
     const students = getStudentsData();
-    let rows = students.map(s => `
-        <tr>
-            <td>${s.id}</td>
-            <td>${s.name}</td>
-            <td>${s.class}</td>
-        </tr>
-    `).join('');
-
-    const html = `
-    <!DOCTYPE html>
-    <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>DG1 – Đinh Trung – 2412111032</title>
-        <link rel="stylesheet" href="/style.css">
-    </head>
-    <body>
-        <h1>DG1 – Đinh Trung – 2412111032</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>MSSV</th>
-                    <th>Họ và Tên</th>
-                    <th>Lớp</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${rows}
-            </tbody>
-        </table>
-    </body>
-    </html>
-    `;
-    res.send(html);
+    let rows = students.map(s => `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.class}</td></tr>`).join('');
+    res.send(`<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><title>DG1 – Đinh Trung – 2412111032</title><link rel="stylesheet" href="/style.css"></head><body><h1>DG1 – Đinh Trung – 2412111032</h1><table><thead><tr><th>MSSV</th><th>Họ và Tên</th><th>Lớp</th></tr></thead><tbody>${rows}</tbody></table></body></html>`);
 });
 
-// ================= CÂU C2 =================
-
-// 1. GET /api/health
+// C2: GET APIs
 app.get('/api/health', (req, res) => {
-    res.json({
-        status: "ok",
-        student: "2412111032"
-    });
+    res.json({ status: "ok", student: "2412111032" });
 });
 
-// 2. GET /api/students (hỗ trợ lọc ?lop=)
 app.get('/api/students', (req, res) => {
     let students = getStudentsData();
     const { lop } = req.query;
-
     if (lop) {
         students = students.filter(s => s.class.toLowerCase() === lop.toLowerCase());
     }
-
     res.json(students);
 });
 
-// 3. GET /api/students/:id (trả về 1 SV hoặc 404)
 app.get('/api/students/:id', (req, res) => {
     const students = getStudentsData();
     const student = students.find(s => s.id === req.params.id);
-
-    if (!student) {
-        return res.status(404).json({ error: "Student not found" });
-    }
-
+    if (!student) return res.status(404).json({ error: "Student not found" });
     res.json(student);
 });
 
-// Khởi chạy Server
+// C3: POST /api/students
+app.post('/api/students', (req, res) => {
+    const { name, class: studentClass, diem } = req.body;
+    if (!name || (!studentClass && !req.body.class && !req.body.lop) || diem === undefined || diem === null || diem === '') {
+        return res.status(400).json({ error: "Thieu truong du lieu bat buoc" });
+    }
+    const score = Number(diem);
+    if (isNaN(score) || score < 0 || score > 10) {
+        return res.status(400).json({ error: "Diem phai nam trong khoang tu 0 den 10" });
+    }
+    const students = getStudentsData();
+    const newId = "SV" + Date.now().toString().slice(-6);
+    const newStudent = {
+        id: newId,
+        name: name,
+        class: studentClass || req.body.class || req.body.lop,
+        diem: score
+    };
+    students.push(newStudent);
+    saveStudentsData(students);
+    res.status(201).json(newStudent);
+});
+
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
