@@ -3,4 +3,8 @@ logs/
 __pycache__/
 node_modules/
 .env
+<<<<<<< HEAD
 *.log
+=======
+node_modules/
+>>>>>>> feature/web-app
