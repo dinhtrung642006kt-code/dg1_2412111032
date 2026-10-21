@@ -2,22 +2,22 @@
   {
     "id": "2412111032",
     "name": "Đinh Trung",
-    "class": "DG1"
+    "class": "CT2801"
   },
   {
     "id": "2412111033",
-    "name": "Nguyễn Văn A",
-    "class": "DG1"
+    "name": "Nguyễn Văn Thiện",
+    "class": "CT2801"
   },
   {
     "id": "2412111034",
-    "name": "Trần Thị B",
-    "class": "DG1"
+    "name": "Trần Trung Nguyên",
+    "class": "CT2801"
   },
   {
-    "id": "SV933018",
-    "name": "Dinh Trung Test",
-    "class": "DG1",
+    "id": "SV2412111032",
+    "name": "Dinh Trung",
+    "class": "CT2801",
     "diem": 9.5
   }
 ]
