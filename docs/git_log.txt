@@ -1,16 +1,33 @@
-*   b02cc3f fix: resolve merge conflict in README.md
+* 9020ca4 fix: restore app directory and clean .gitignore
+* 1f87bec docs: add danhsach.txt
+* 9b37b22 Delete app directory
+* ac785c7 Delete danhsach.txt
+* 7813c74 docs: add danhsach.txt
+* 3a308bf fix(data): update student data in students.json
+* 8a1d0c1 Delete baocao.txt
+* 82a5f40 docs: add baocao.txt
+*   8ee9dc4 feat(docker): complete D3 with docker-compose, nginx reverse proxy, and persistent volume
 |\  
-| * b269657 docs: update README header on develop
-| *   3f5b3b7 Merge pull request #2 from dinhtrung642006kt-code/feature/docker
-| |\  
-| | * 9e933ac chore: update gitignore for docker environment
-| | * b9fe148 fix: adjust docker-compose parameters
-| | * 6e3ef01 feat: add docker-compose configuration
-| | * b69e867 feat: add Dockerfile for web service
-| * |   2b611a1 Merge pull request #1 from dinhtrung642006kt-code/feature/web-app
+| * 7bec4ba feat(docker): add Dockerfile with non-root user and .dockerignore
+| * 8e3e5c7 fix(api): update POST /api/students and regenerate valid docs/api_test.txt
+| * 01b121b feat(api): implement POST /api/students and save test log to docs/api_test.txt
+| * 2f6848b feat(api): implement GET /api/health, /api/students with class filter and /api/students/:id
+| * 3ba854f feat(web): implement GET / showing student list from json with css
+* | ad380e9 docs: add git log summary file
+* |   b02cc3f fix: resolve merge conflict in README.md
+|\ \  
+| * | b269657 docs: update README header on develop
+| * |   3f5b3b7 Merge pull request #2 from dinhtrung642006kt-code/feature/docker
 | |\ \  
-| | |/  
-| |/|   
+| | * | 9e933ac chore: update gitignore for docker environment
+| | * | b9fe148 fix: adjust docker-compose parameters
+| | * | 6e3ef01 feat: add docker-compose configuration
+| | * | b69e867 feat: add Dockerfile for web service
+| * | |   2b611a1 Merge pull request #1 from dinhtrung642006kt-code/feature/web-app
+| |\ \ \  
+| | |/ /  
+| |/| /   
+| | |/    
 | | * 24d040e docs: add project documentation
 | | * afe0dbf feat: add web app entry point
 | |/  
